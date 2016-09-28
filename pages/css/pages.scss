@@ -39,7 +39,8 @@ body {
       }
     }
     #todo_content{
-      width: 1000px;
+      min-width: 1000px;
+      width: 100%;
       height: 500px;
       margin: 0;
       padding: 0;
