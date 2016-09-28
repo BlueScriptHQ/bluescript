@@ -13,7 +13,8 @@ body {
   background-color: $lightGray;
 
   #todo_wrapper{
-    width: 1000px;
+    min-width: 1000px;
+    width: 100%;
     height: 550px;
     background-color: #fff;
     position: relative;
