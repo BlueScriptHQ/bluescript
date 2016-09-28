@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 27 sep 2016 om 19:40
+-- Gegenereerd op: 28 sep 2016 om 12:54
 -- Serverversie: 10.1.16-MariaDB
 -- PHP-versie: 7.0.9
 
@@ -38,7 +38,7 @@ CREATE TABLE `menu` (
 
 INSERT INTO `menu` (`m_id`, `m_name`, `m_href`) VALUES
 (1, 'To Do lijsten', 'todo.php'),
-(2, 'Projecten', 'projects.php');
+(2, 'Statistieken', 'statistics.php');
 
 --
 -- Indexen voor geëxporteerde tabellen
