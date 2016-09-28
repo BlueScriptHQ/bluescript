@@ -1,0 +1,16 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,700';
+//Variables
+$mainColor: #3498db;
+$secondaryColor: #333333;
+$secondaryColorDark: #212121;
+$lightGray: #eaeaea;
+$font: 'Open Sans', sans-serif;
+
+body {
+  //border: 1px solid;
+  font-family: $font;
+  padding: 10px;
+  background-color: $lightGray;
+
+  
+}
