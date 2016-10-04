@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/s_pages.min.css" media="screen" title="no title">
+    <link rel="stylesheet" href="css/tabel.css">
   </head>
 
   <body>
@@ -13,7 +14,7 @@
     <?php
     require_once "../php/connection.php";
 
-    $query="SELECT pages_name, pages_count FROM pages";
+    $query="SELECT pages_name, pages_count FROM pages ORDER BY pages_count DESC";
 
     $stmt = $conn->query($query);
 
@@ -82,6 +83,18 @@
 
     <!-- HTML -->
     <div id="chartdiv"></div>
+    <table>
+      <tr>
+        <th>Paginanaam</th>
+        <th>Paginacount</th>
+      </tr>
+      <?php foreach($result as $row){
+        echo "<tr>
+        <td>".$row['pages_name']." \n </td>
+        <td>".$row['pages_count']." \n </td>
+        </tr>";
+      }?>
+    </table>
 
     <!--Vendor scripts-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
