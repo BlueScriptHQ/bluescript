@@ -674,7 +674,7 @@
             this.fillColor = "#FFFFFF";
             this.fillAlpha = 0;
             this.labelsEnabled = !0;
-            this.labelRotation = 0;
+            this.labelRotation = 270;
             this.autoGridCount = !0;
             this.offset = 0;
             this.guides = [];
@@ -7067,7 +7067,7 @@
                 var g = this.create(null, "tspan");
                 g.appendChild(document.createTextNode(a[f]));
                 g.setAttribute("y", (h + 2) * f + Math.round(h / 2));
-                g.setAttribute("x", 0);
+                g.setAttribute("x", -40);
                 e.node.appendChild(g)
             }
             e.node.setAttribute("y", Math.round(h / 2));
