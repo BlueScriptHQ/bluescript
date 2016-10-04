@@ -4,10 +4,10 @@ $mainColor: #3498db;
 $secondaryColor: #333333;
 $secondaryColorDark: #212121;
 $lightGray: #f1f1f1;
+$lightGrayOverlay: #dedede;
 $font: 'Open Sans', sans-serif;
 
 body {
-  //border: 1px solid;
   font-family: $font;
   background-color: #fff;;
   float: left;
@@ -17,12 +17,128 @@ body {
   .todo_all_wrapper{
     width: 300px;
     height: 500px;
-    overflow-y: scroll;
-    .todo_item_name{
-      width: 100%;
+    overflow-y: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    .todo_items_wrapper{
+      width: 300px;
+      height: 450px;
+      overflow-y: scroll;
+      position: absolute;
+      left: 0;
+      top: 0;
+      .todo_item_name{
+        width: 100%;
+        height: 50px;
+        float: left;
+        border-bottom: 2px solid $lightGray;
+        .prio_color{
+          width: 10px;
+          background-color: red;
+          height: 100%;
+          float: left;
+        }
+        p{
+          height: 100%;
+          width: 220px;
+          float: left;
+          margin: 0;
+          line-height: 50px;
+          padding-left: 10px;
+        }
+        .img_container{
+          width: 43px;
+          height: 100%;
+          float: left;
+          img{
+            display: block;;
+            width: 24px;
+            height: 24px;
+            float: left;
+            margin-top: 13px;
+            margin-left: 10px;
+            cursor: pointer;
+
+          }
+        }
+        .prio_overlay{
+          background-color: $lightGrayOverlay;
+        }
+      }
+    }
+    .todo_item_overlay{
+      background-color: $lightGrayOverlay;
+      color: gray;
+    }
+    .todo_add{
       height: 50px;
-      float: left;
-      border-bottom: 2px solid $lightGray;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 450px;
+      bottom: 0;
+      background-color: $secondaryColor;
+      cursor: pointer;
+      p{
+        //background-color: blue;
+        margin: 0;
+        line-height: 50px;
+        padding-left: 30px;
+        color: white;
+        img{
+          width: 25px;
+          height: 25px;
+          position: absolute;
+          top: 12.5px;
+          right: 30px;
+        }
+      }
     }
   }
+
+  .todo_content_wrapper{
+    min-width: 700px;
+    width: calc(100% - 300px);
+    height: 500px;
+    position: absolute;
+    left: 300px;
+    top: 0;
+    .todo_content_container{
+      background-color: $lightGray;
+      width: 680px;
+      height: 460px;
+      margin: 20px auto;
+      input[type="text"]{
+        width: calc(100% - 14px);
+        height: 30px;
+        float: left;
+        padding-left: 10px;
+        border: 2px solid $lightGrayOverlay;
+        outline: 0;
+        font-size: 16px;
+      }
+      input[type="text"]:focus{
+        outline: 0;
+        border: 2px solid $mainColor;
+      }
+      textarea{
+        width: calc(100% - 24px);
+        height: 250px;
+        float: left;
+        padding: 5px 10px;
+        margin-top: 20px;
+        resize: none;
+        border: 2px solid $lightGrayOverlay;
+        outline: 0;
+        font-family: $font;
+        font-size: 16px;
+      }
+      textarea:focus{
+        outline: 0;
+        border: 2px solid $mainColor;
+      }
+    }
+  }
+
 }
