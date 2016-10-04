@@ -11,21 +11,22 @@
 
   <body>
     <div class="todo_all_wrapper">
-      <div class="todo_item_name">
-        <div class="prio_color"></div>
-        <p>dit doe ik samen</p>
-        <div class="img_container">
-          <img src="../../img/todo_img/check.png" alt="check" class="check"/>
+      <div class="todo_items_wrapper">
+        <div class="todo_item_name">
+          <div class="prio_color"></div>
+          <p>hoi</p>
+          <div class="img_container">
+            <img src="../../img/todo_img/check.png" alt="check" class="check"/>
+          </div>
         </div>
       </div>
-      <div class="todo_item_name">
-        <div class="prio_color"></div>
-        <p>sdfhksjhdf</p>
-        <div class="img_container">
-          <img src="../../img/todo_img/check.png" alt="check" class="check"/>
-        </div>
+      <div class="todo_add">
+        <p>Nieuw item aanmaken
+          <img src="../../img/todo_img/add.png" alt="add" />
+        </p>
       </div>
     </div>
+
 
     <!--Vendor scripts-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

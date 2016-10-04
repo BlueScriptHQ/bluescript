@@ -31,6 +31,30 @@
       <form class="todo_content_container" action="" method="post">
           <input type="text" name="title" placeholder="Titel hier...">
           <textarea name="description" placeholder="Vul hier een omschrijving in..."></textarea>
+          <div class="choose_prio_wrapper">
+            <p>Prioriteit</p>
+            <div class="prio prio_normaal active_prio">
+
+            </div>
+            <div class="prio prio_hoog">
+
+            </div>
+            <div class="prio prio_extreem">
+
+            </div>
+          </div>
+
+          <div class="todo_footer">
+            <div class="btn_class btn_addUser">
+              <input type="button" name="addUser_btn" value="Gebruikers">
+            </div>
+            <div class="btn_class btn_delete">
+              <input type="button" name="addUser_btn" value="Verwijderen">
+            </div>
+            <div class="btn_class btn_addItem">
+              <input type="button" name="addUser_btn" value="Toevoegen">
+            </div>
+          </div>
       </form>
     </div>
 

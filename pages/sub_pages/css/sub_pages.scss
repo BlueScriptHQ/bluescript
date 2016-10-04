@@ -5,6 +5,9 @@ $secondaryColor: #333333;
 $secondaryColorDark: #212121;
 $lightGray: #f1f1f1;
 $lightGrayOverlay: #dedede;
+$prio_normal: #f1c40f;
+$prio_high: #e67e22;
+$prio_extreme: #e74c3c;
 $font: 'Open Sans', sans-serif;
 
 body {
@@ -137,6 +140,63 @@ body {
       textarea:focus{
         outline: 0;
         border: 2px solid $mainColor;
+      }
+      .choose_prio_wrapper{
+        width: 100%;
+        height: 30px;
+        float: left;
+        margin-top: 20px;
+        p{
+          margin: 0;
+          width: 100px;
+          line-height: 30px;
+          padding-left: 10px;
+          float: left;
+        }
+        .prio{
+          background-color: black;
+          width: 20px;
+          height: 20px;
+          float: left;
+          margin-right: 20px;
+          margin-top: 5px;
+          cursor: pointer;
+        }
+        .prio_normaal{ background-color: $prio_normal}
+        .prio_hoog{ background-color: $prio_high}
+        .prio_extreem{ background-color: $prio_extreme}
+        .active_prio{
+          outline: 3px solid $secondaryColorDark;
+        }
+      }
+
+      .todo_footer{
+        width: 100%;
+        height: 40px;
+        float: left;
+        margin-top: 50px;
+        .btn_class{
+          width: 180px;
+          height: 40px;
+          float: left;
+          input[type="button"]{
+            outline: none;
+            width: 180px;
+            height: 40px;
+            border-radius: 5px;
+            border: 2px transparent;
+            text-transform: uppercase;
+          }
+        }
+        .btn_addUser{
+          margin-right: 130px;
+        }
+        .btn_delete{
+          margin-right: 10px;
+        }
+        .btn_addItem{
+          margin-right: 0;
+        }
       }
     }
   }
