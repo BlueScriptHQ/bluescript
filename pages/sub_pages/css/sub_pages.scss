@@ -8,6 +8,7 @@ $lightGrayOverlay: #dedede;
 $prio_normal: #f1c40f;
 $prio_high: #e67e22;
 $prio_extreme: #e74c3c;
+$green: #2ecc71;
 $font: 'Open Sans', sans-serif;
 
 body {
@@ -38,7 +39,7 @@ body {
         border-bottom: 2px solid $lightGray;
         .prio_color{
           width: 10px;
-          background-color: red;
+          background-color: $prio_high;
           height: 100%;
           float: left;
         }
@@ -56,11 +57,11 @@ body {
           float: left;
           img{
             display: block;;
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             float: left;
-            margin-top: 13px;
-            margin-left: 10px;
+            margin-top: 15px;
+            margin-left: 12px;
             cursor: pointer;
 
           }
@@ -84,7 +85,6 @@ body {
       background-color: $secondaryColor;
       cursor: pointer;
       p{
-        //background-color: blue;
         margin: 0;
         line-height: 50px;
         padding-left: 30px;
@@ -108,7 +108,6 @@ body {
     left: 300px;
     top: 0;
     .todo_content_container{
-      background-color: $lightGray;
       width: 680px;
       height: 460px;
       margin: 20px auto;
@@ -170,11 +169,38 @@ body {
         }
       }
 
+      #todo_deadline_wrapper{
+        float: left;
+        width: 100%;
+        height: 30px;
+        margin-top: 10px;
+        p{
+          margin: 0;
+          width: 100px;
+          line-height: 30px;
+          padding-left: 10px;
+          float: left;
+        }
+        input[type="text"]{
+          width: 88px;
+          height: 24px;
+          float: left;
+          padding-left: 8px;
+          border: 2px solid $lightGrayOverlay;
+          font-size: 16px;
+        }
+        input[type="text"]:focus{
+          outline: 0;
+          border: 2px solid $mainColor;
+        }
+      }
+
       .todo_footer{
         width: 100%;
         height: 40px;
         float: left;
         margin-top: 50px;
+        font-family: $font;
         .btn_class{
           width: 180px;
           height: 40px;
@@ -186,17 +212,37 @@ body {
             border-radius: 5px;
             border: 2px transparent;
             text-transform: uppercase;
+            background-color: $mainColor;
+            color: #fff;
+            cursor: pointer;
+            font-family: $font;
+            font-size: 16px;
           }
         }
         .btn_addUser{
           margin-right: 130px;
+          position: absolute;
+          float: left;
+          input[type="button"].color_addUser_btn{
+          }
         }
         .btn_delete{
+          float: right;
           margin-right: 10px;
+          input[type="button"].color_delete_btn{
+            background-color: $prio_extreme;
+          }
         }
         .btn_addItem{
+          float: right;
           margin-right: 0;
+          input[type="button"].color_addItem_btn{
+            background-color: $green;
+          }
         }
+      }
+      .todo_footer_together{
+        margin-top: 10px;
       }
     }
   }

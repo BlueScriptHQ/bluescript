@@ -33,26 +33,17 @@
           <textarea name="description" placeholder="Vul hier een omschrijving in..."></textarea>
           <div class="choose_prio_wrapper">
             <p>Prioriteit</p>
-            <div class="prio prio_normaal active_prio">
-
-            </div>
-            <div class="prio prio_hoog">
-
-            </div>
-            <div class="prio prio_extreem">
-
-            </div>
+            <div class="prio prio_normaal active_prio"></div>
+            <div class="prio prio_hoog"></div>
+            <div class="prio prio_extreem"></div>
           </div>
 
           <div class="todo_footer">
-            <div class="btn_class btn_addUser">
-              <input type="button" name="addUser_btn" value="Gebruikers">
+            <div class="btn_class btn_addItem">
+              <input type="button" name="addItem_btn" value="Toevoegen" class="color_addItem_btn">
             </div>
             <div class="btn_class btn_delete">
-              <input type="button" name="addUser_btn" value="Verwijderen">
-            </div>
-            <div class="btn_class btn_addItem">
-              <input type="button" name="addUser_btn" value="Toevoegen">
+              <input type="button" name="delete_btn" value="Verwijderen" class="color_delete_btn">
             </div>
           </div>
       </form>
@@ -61,6 +52,6 @@
     <!--Vendor scripts-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <!--Custom scripts-->
-    <script src="../../js/todoMenuControls.js"></script>
+    <script src="../../js/todoControls.js"></script>
   </body>
 </html>

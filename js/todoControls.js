@@ -5,5 +5,12 @@ $(document).ready(function(){
     $(this).hide();
   }
 
+  function choosePrio(){
+    var prioColor = $(this).css("background-color");
+    $(".prio").removeClass("active_prio");
+    $(this).addClass("active_prio");
+  }
+
   $(".check").on("click", checkControl);
+  $(".prio").on("click", choosePrio);
 });
