@@ -37,6 +37,7 @@ body {
         height: 50px;
         float: left;
         border-bottom: 2px solid $lightGray;
+        cursor: pointer;
         .prio_color{
           width: 10px;
           background-color: $prio_high;

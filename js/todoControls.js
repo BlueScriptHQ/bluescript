@@ -11,6 +11,11 @@ $(document).ready(function(){
     $(this).addClass("active_prio");
   }
 
+  function openItem(){
+    alert();
+  }
+
   $(".check").on("click", checkControl);
   $(".prio").on("click", choosePrio);
+  $(".todo_item_name").on("click", openItem);
 });
