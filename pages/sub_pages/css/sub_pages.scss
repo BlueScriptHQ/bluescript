@@ -44,6 +44,9 @@ body {
           height: 100%;
           float: left;
         }
+        .prio_normal{ background-color: $prio_normal}
+        .prio_high{ background-color: $prio_high}
+        .prio_extreme{ background-color: $prio_extreme}
         p{
           height: 100%;
           width: 220px;
@@ -220,13 +223,6 @@ body {
             font-size: 16px;
           }
         }
-        .btn_addUser{
-          margin-right: 130px;
-          position: absolute;
-          float: left;
-          input[type="button"].color_addUser_btn{
-          }
-        }
         .btn_delete{
           float: right;
           margin-right: 10px;
@@ -247,5 +243,12 @@ body {
       }
     }
   }
+  .new_item{
+    display: block;
+  }
+  .open_item{
+    display: none;
+  }
+
 
 }

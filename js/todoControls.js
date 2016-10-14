@@ -12,10 +12,23 @@ $(document).ready(function(){
   }
 
   function openItem(){
-    alert();
+    $p_id = $(this).find("input[type='hidden']").val();
+    alert($p_id);
+
+
+
+    /*
+    $(".new_item").hide();
+    $(".open_item").show(); */
+  }
+
+  function newItem(){
+    $(".open_item").hide();
+    $(".new_item").show();
   }
 
   $(".check").on("click", checkControl);
   $(".prio").on("click", choosePrio);
+  $(".todo_add").on("click", newItem);
   $(".todo_item_name").on("click", openItem);
 });

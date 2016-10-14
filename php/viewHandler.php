@@ -1,5 +1,4 @@
 <?php
-  error_reporting(-1);
 
   try {
      $user = "gerrizo42_admin";
