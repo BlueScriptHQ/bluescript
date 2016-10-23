@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   function checkControl(){
     $(this).parent().parent().addClass("todo_item_overlay");
     $(this).parent().parent().find(".prio_color").addClass("prio_overlay");
@@ -13,13 +14,9 @@ $(document).ready(function(){
 
   function openItem(){
     $p_id = $(this).find("input[type='hidden']").val();
-    alert($p_id);
 
-
-
-    /*
     $(".new_item").hide();
-    $(".open_item").show(); */
+    $(".open_item").show();
   }
 
   function newItem(){
@@ -27,8 +24,17 @@ $(document).ready(function(){
     $(".new_item").show();
   }
 
+  function addTodoControl(){
+    /*
+    var
+    var
+    var */
+    //bezig met ids op de addItem todo form, dan kan ik de values uniek uitlezen
+  }
+
   $(".check").on("click", checkControl);
   $(".prio").on("click", choosePrio);
   $(".todo_add").on("click", newItem);
-  $(".todo_item_name").on("click", openItem);
+  $(".todo_items_wrapper").on("click", ".todo_item_name", openItem);
+  $(".color_addItem_btn[name=addItem_btn]").on("click", addTodoControl);
 });
