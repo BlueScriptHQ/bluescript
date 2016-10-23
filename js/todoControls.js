@@ -13,10 +13,9 @@ $(document).ready(function(){
   }
 
   function openItem(){
-    $p_id = $(this).find("input[type='hidden']").val();
+    var p_id = $(this).find("input[type='hidden']").val();
 
-    $(".new_item").hide();
-    $(".open_item").show();
+    openTodo(p_id);
   }
 
   function newItem(){
@@ -25,11 +24,66 @@ $(document).ready(function(){
   }
 
   function addTodoControl(){
-    /*
-    var
-    var
-    var */
-    //bezig met ids op de addItem todo form, dan kan ik de values uniek uitlezen
+    var title = $("#todo_add_title").val();
+    var desc = $("#todo_add_desc").val();
+    var prio = 0;
+
+    $("#add-prio").find(".prio").each(function(){
+      if($(this).hasClass("active_prio")){
+        var classList = $(this).attr('class').split(/\s+/);
+        var theClass = classList[1];
+
+        switch(theClass){
+          case "prio_normaal":
+             prio = 0;
+             break;
+          case "prio_hoog":
+             prio = 1;
+             break;
+          case "prio_extreem":
+             prio = 2;
+             break;
+          default:
+             prio = 0;
+             break;
+        }
+      }
+    });
+
+    addTodo(title, desc, prio);
+  }
+
+  function updateTodoControl(){
+    var p_id = $("#todo_update_id").val();
+    var title = $("#todo_update_title").val();
+    var desc = $("#todo_update_desc").val();
+    var prio = 0;
+
+    $("#open-form").find(".prio").each(function(){
+      if($(this).hasClass("active_prio")){
+        var classList = $(this).attr('class').split(/\s+/);
+        var theClass = classList[1];
+
+        switch(theClass){
+          case "prio_normaal":
+             prio = 0;
+             break;
+          case "prio_hoog":
+             prio = 1;
+             break;
+          case "prio_extreem":
+             prio = 2;
+             break;
+          default:
+             prio = 0;
+             break;
+        }
+      }
+
+    });
+
+    updateTodo(p_id, title, desc, prio);
+
   }
 
   $(".check").on("click", checkControl);
@@ -37,4 +91,5 @@ $(document).ready(function(){
   $(".todo_add").on("click", newItem);
   $(".todo_items_wrapper").on("click", ".todo_item_name", openItem);
   $(".color_addItem_btn[name=addItem_btn]").on("click", addTodoControl);
+  $("input[name=modify_btn]").on("click", updateTodoControl);
 });

@@ -3,6 +3,9 @@
   session_start();
   require "connection.php";
 
+
+
+if(isset($_GET["loadTodoPhp"])){
   $sql = "SELECT * FROM personal_todo WHERE u_id = :id ";
   $stmt = $conn->prepare($sql);
   $stmt->execute(array(
@@ -10,8 +13,6 @@
   ));
   $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
-if(isset($_GET["loadTodoPhp"])){
   foreach($res as $result){
     $class = "";
     switch($result["p_prio"]){
@@ -40,5 +41,54 @@ if(isset($_GET["loadTodoPhp"])){
   }
 }
 
+  if(isset($_POST["insert"])){
+    $title = $_POST["todoTitle"];
+    $desc = $_POST["todoDesc"];
+    $prio = $_POST["todoPrio"];
 
+    $sql = "INSERT INTO personal_todo (p_name, p_desc, p_prio, u_id)
+            VALUES (:title, :desc, :prio, :user_id);";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute(array(
+      ":title" => $title,
+      ":desc" => $desc,
+      ":prio" => $prio,
+      ":user_id" => $_SESSION["id"]
+    ));
+
+  }
+
+  if(isset($_POST["open"])){
+    $p_id = $_POST["todoID"];
+
+    $sql = "SELECT * FROM personal_todo WHERE p_id = :id";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute(array(
+      ":id"=> $p_id
+    ));
+    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    echo json_encode($res);
+  }
+
+  if(isset($_POST["update"])){
+    $p_id = $_POST["todoID"];
+    $title = $_POST["todoTitle"];
+    $desc = $_POST["todoDesc"];
+    $prio = $_POST["todoPrio"];
+
+    $sql = "UPDATE personal_todo
+            SET p_name = :title,
+                p_desc = :desc,
+                p_prio = :prio
+            WHERE p_id = :id";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute(array(
+      ":title" => $title,
+      ":desc" => $desc,
+      ":prio" => $prio,
+      ":id" => $p_id
+    ));
+
+  }
 ?>

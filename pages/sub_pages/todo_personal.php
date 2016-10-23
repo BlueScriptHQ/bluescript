@@ -25,7 +25,7 @@
       <form class="todo_content_container" action="" method="post">
           <input type="text" name="title" id="todo_add_title" placeholder="Titel hier...">
           <textarea name="description" id="todo_add_desc" placeholder="Vul hier een omschrijving in..."></textarea>
-          <div class="choose_prio_wrapper">
+          <div class="choose_prio_wrapper" id="add-prio">
             <p>Prioriteit</p>
             <div class="prio prio_normaal active_prio"></div>
             <div class="prio prio_hoog"></div>
@@ -41,16 +41,17 @@
     </div>
 
     <div class="todo_content_wrapper open_item">
-      <form class="todo_content_container" action="" method="post">
-          <input type="text" name="title" placeholder="Titel hier...">
-          <textarea name="description" placeholder="Vul hier een omschrijving in..."></textarea>
+      <form class="todo_content_container" id="open-form" action="" method="post">
+          <input type="hidden" value="" id="todo_update_id">
+          <input type="text" name="title" id="todo_update_title" placeholder="Titel hier...">
+          <textarea name="description" id="todo_update_desc" placeholder="Vul hier een omschrijving in..."></textarea>
           <div class="choose_prio_wrapper">
             <p>Prioriteit</p>
             <div class="prio prio_normaal active_prio"></div>
             <div class="prio prio_hoog"></div>
             <div class="prio prio_extreem"></div>
           </div>
-
+          <div id="todo_result"></div>
           <div class="todo_footer">
             <div class="btn_class btn_addItem btn_modify">
               <input type="button" name="modify_btn" value="Opslaan" class="color_addItem_btn">
