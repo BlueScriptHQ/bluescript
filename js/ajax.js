@@ -14,7 +14,7 @@ $(document).ready(function(){
 
   // toevoegen van todo
   window.addTodo = function(){
-    alert("added!");
+
   };
 
 });
