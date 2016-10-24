@@ -50,7 +50,6 @@ $(document).ready(function(){
   };
 
   window.updateTodo = function(p_id, t, d, p){
-
     $.ajax({
       url: "../../php/functions.php",
       data: "update=true&todoID=" + p_id + "&todoTitle=" + t + "&todoDesc=" + d + "&todoPrio=" + p,
@@ -64,6 +63,28 @@ $(document).ready(function(){
 
   };
 
+  window.checkTodo = function(p_id){
+    $.ajax({
+      url: "../../php/functions.php",
+      data: "check=true&todoID=" + p_id,
+      method: "POST",
+      success: function(){
+        loadTodo();
+      }
+    });
+  };
+
+  window.deleteTodo = function(p_id){
+    $.ajax({
+      url: "../../php/functions.php",
+      data: "delete=true&todoID=" + p_id,
+      method: "POST",
+      success: function(){
+        loadTodo();
+        newItem();
+      }
+    });
+  };
 
 
 });

@@ -12,13 +12,7 @@
   <body>
     <div class="todo_all_wrapper">
       <div class="todo_items_wrapper">
-        <div class="todo_item_name">
-          <div class="prio_color"></div>
-          <p>hoi</p>
-          <div class="img_container">
-            <img src="../../img/todo_img/check.png" alt="check" class="check"/>
-          </div>
-        </div>
+        <!-- hier worden de todos geladen! :) -->
       </div>
       <div class="todo_add">
         <p>Nieuw item aanmaken
@@ -29,22 +23,20 @@
 
     <div class="todo_content_wrapper new_item">
       <form class="todo_content_container" action="" method="post">
-          <input type="text" name="title" placeholder="Titel hier...">
-          <textarea name="description" placeholder="Vul hier een omschrijving in..."></textarea>
-          <div class="choose_prio_wrapper">
+          <input type="text" name="title" id="todo_add_title" placeholder="Titel hier...">
+          <textarea name="description" id="todo_add_desc" placeholder="Vul hier een omschrijving in..."></textarea>
+          <div class="choose_prio_wrapper" id="add-prio">
             <p>Prioriteit</p>
             <div class="prio prio_normaal active_prio"></div>
             <div class="prio prio_hoog"></div>
             <div class="prio prio_extreem"></div>
           </div>
-
           <div id="todo_deadline_wrapper">
             <p>Deadline</p>
-            <input type="text" name="deadline_input" placeholder="datum...">
+            <input type="text" name="deadline_input" id="todo_add_deadline" placeholder="datum...">
           </div>
-
-          <div class="todo_footer todo_footer_together">
-            <div class="btn_class btn_addItem">
+          <div class="todo_footer">
+            <div class="btn_class btn_addItem btn_add">
               <input type="button" name="addItem_btn" value="Toevoegen" class="color_addItem_btn">
             </div>
           </div>
@@ -52,23 +44,22 @@
     </div>
 
     <div class="todo_content_wrapper open_item">
-      <form class="todo_content_container" action="" method="post">
-          <input type="text" name="title" placeholder="Titel hier...">
-          <textarea name="description" placeholder="Vul hier een omschrijving in..."></textarea>
+      <form class="todo_content_container" id="open-form" action="" method="post">
+          <input type="hidden" value="" id="todo_update_id">
+          <input type="text" name="title" id="todo_update_title" placeholder="Titel hier...">
+          <textarea name="description" id="todo_update_desc" placeholder="Vul hier een omschrijving in..."></textarea>
           <div class="choose_prio_wrapper">
             <p>Prioriteit</p>
             <div class="prio prio_normaal active_prio"></div>
             <div class="prio prio_hoog"></div>
             <div class="prio prio_extreem"></div>
           </div>
-
           <div id="todo_deadline_wrapper">
             <p>Deadline</p>
             <input type="text" name="deadline_input" placeholder="datum...">
           </div>
-
-          <div class="todo_footer todo_footer_together">
-
+          <div id="todo_result"></div>
+          <div class="todo_footer">
             <div class="btn_class btn_addItem btn_modify">
               <input type="button" name="modify_btn" value="Opslaan" class="color_addItem_btn">
             </div>
@@ -84,5 +75,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <!--Custom scripts-->
     <script src="../../js/todoControls.js"></script>
+    <script src="../../js/ajax_together.js"></script>
   </body>
 </html>

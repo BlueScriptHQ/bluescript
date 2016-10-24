@@ -6,16 +6,14 @@
 
 
 if(isset($_GET["loadTodoPhp"])){
-  $sql = "SELECT * FROM personal_todo WHERE u_id = :id ";
+  $sql = "SELECT * FROM together_todo";
   $stmt = $conn->prepare($sql);
-  $stmt->execute(array(
-    ":id"=> $_SESSION["id"]
-  ));
+  $stmt->execute();
   $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   foreach($res as $result){
     $class = "";
-    switch($result["p_prio"]){
+    switch($result["t_prio"]){
       case 0:
         $class = "prio_normal";
         break;
@@ -30,16 +28,16 @@ if(isset($_GET["loadTodoPhp"])){
         break;
     }
 
-    $doneClass = ($result['p_done'] === "0") ? "" : " todo_item_overlay";
-    $donePrio = ($result['p_done'] === "0") ? "" : " prio_overlay";
-    $hideCheck = ($result['p_done'] === "0") ? "<img src='../../img/todo_img/check.png' alt='check' class='check'/>" : "";
-    $name = (strlen($result['p_name']) > 20) ? substr($result['p_name'], 0, 20)."..." : $result['p_name'];
+    $doneClass = ($result['t_done'] === "0") ? "" : " todo_item_overlay";
+    $donePrio = ($result['t_done'] === "0") ? "" : " prio_overlay";
+    $hideCheck = ($result['t_done'] === "0") ? "<img src='../../img/todo_img/check.png' alt='check' class='check'/>" : "";
+    $name = (strlen($result['t_name']) > 20) ? substr($result['t_name'], 0, 20)."..." : $result['t_name'];
 
     echo "
         <div class='todo_item_name ".$doneClass."'>
           <div class='prio_color ".$class.$donePrio."'></div>
           <p>".$name."</p>
-          <input type='hidden' value='".$result["p_id"]."'/>
+          <input type='hidden' value='".$result["t_id"]."'/>
           <div class='img_container'>
             ".$hideCheck."
           </div>
@@ -51,26 +49,27 @@ if(isset($_GET["loadTodoPhp"])){
     $title = $_POST['todoTitle'];
     $desc = $_POST["todoDesc"];
     $prio = $_POST["todoPrio"];
+    $deadline = $_POST["todoDeadline"];
 
-    $sql = "INSERT INTO personal_todo (p_name, p_desc, p_prio, u_id)
-            VALUES (:title, :desc, :prio, :user_id);";
+    $sql = "INSERT INTO together_todo (t_name, t_desc, t_deadline, t_prio)
+            VALUES (:title, :desc, :t_deadline, :prio);";
     $stmt = $conn->prepare($sql);
     $stmt->execute(array(
       ":title" => $title,
       ":desc" => $desc,
-      ":prio" => $prio,
-      ":user_id" => $_SESSION["id"]
+      ":t_deadline" => $deadline,
+      ":prio" => $prio
     ));
 
   }
 
   if(isset($_POST["open"])){
-    $p_id = $_POST["todoID"];
+    $t_id = $_POST["todoID"];
 
-    $sql = "SELECT * FROM personal_todo WHERE p_id = :id";
+    $sql = "SELECT * FROM together_todo WHERE t_id = :id";
     $stmt = $conn->prepare($sql);
     $stmt->execute(array(
-      ":id"=> $p_id
+      ":id"=> $t_id
     ));
     $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -78,46 +77,49 @@ if(isset($_GET["loadTodoPhp"])){
   }
 
   if(isset($_POST["update"])){
-    $p_id = $_POST["todoID"];
+    $t_id = $_POST["todoID"];
     $title = $_POST["todoTitle"];
     $desc = $_POST["todoDesc"];
     $prio = $_POST["todoPrio"];
+    $deadline = $_POST["todoDeadline"];
 
-    $sql = "UPDATE personal_todo
-            SET p_name = :title,
-                p_desc = :desc,
-                p_prio = :prio,
-                p_done = 0
-            WHERE p_id = :id";
+    $sql = "UPDATE together_todo
+            SET t_name = :title,
+                t_desc = :desc,
+                t_prio = :prio,
+                t_deadline = :deadline,
+                t_done = 0
+            WHERE t_id = :id";
     $stmt = $conn->prepare($sql);
     $stmt->execute(array(
       ":title" => $title,
       ":desc" => $desc,
       ":prio" => $prio,
-      ":id" => $p_id
+      ":deadline" => $deadline,
+      ":id" => $t_id
     ));
   }
 
   if(isset($_POST["check"])){
-    $p_id = $_POST["todoID"];
+    $t_id = $_POST["todoID"];
 
-    $sql = "UPDATE personal_todo
-            SET p_done = 1
-            WHERE p_id = :id";
+    $sql = "UPDATE together_todo
+            SET t_done = 1
+            WHERE t_id = :id";
     $stmt = $conn->prepare($sql);
     $stmt->execute(array(
-      ":id" => $p_id
+      ":id" => $t_id
     ));
   }
 
   if(isset($_POST["delete"])){
-    $p_id = $_POST["todoID"];
+    $t_id = $_POST["todoID"];
 
-    $sql = "DELETE FROM personal_todo
-            WHERE p_id = :id";
+    $sql = "DELETE FROM together_todo
+            WHERE t_id = :id";
     $stmt = $conn->prepare($sql);
     $stmt->execute(array(
-      ":id" => $p_id
+      ":id" => $t_id
     ));
   }
 

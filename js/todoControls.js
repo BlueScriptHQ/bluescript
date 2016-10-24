@@ -1,9 +1,8 @@
 $(document).ready(function(){
 
   function checkControl(){
-    $(this).parent().parent().addClass("todo_item_overlay");
-    $(this).parent().parent().find(".prio_color").addClass("prio_overlay");
-    $(this).hide();
+    var p_id = $(this).parent().parent().find("input[type='hidden']").val();
+    checkTodo(p_id);
   }
 
   function choosePrio(){
@@ -14,14 +13,13 @@ $(document).ready(function(){
 
   function openItem(){
     var p_id = $(this).find("input[type='hidden']").val();
-
     openTodo(p_id);
   }
 
-  function newItem(){
+  window.newItem = function(){
     $(".open_item").hide();
     $(".new_item").show();
-  }
+  };
 
   function addTodoControl(){
     var title = $("#todo_add_title").val();
@@ -50,7 +48,13 @@ $(document).ready(function(){
       }
     });
 
-    addTodo(title, desc, prio);
+    if($("#todo_add_deadline").length){
+      var deadline = $("#todo_add_deadline").val();
+      addTodo(title, desc, prio, deadline);
+    } else {
+      addTodo(title, desc, prio);
+    }
+
   }
 
   function updateTodoControl(){
@@ -81,15 +85,24 @@ $(document).ready(function(){
       }
 
     });
-
-    updateTodo(p_id, title, desc, prio);
-
+    if($("#open-form input[name=deadline_input]").length){
+      var deadline = $("#open-form input[name=deadline_input]").val();
+      updateTodo(p_id, title, desc, prio, deadline);
+    } else {
+      updateTodo(p_id, title, desc, prio);
+    }
   }
 
-  $(".check").on("click", checkControl);
+  function deleteTodoControl(){
+    var p_id = $(this).parent().parent().parent().find("input[type='hidden']").val();
+    deleteTodo(p_id);
+  }
+
+  $(".todo_items_wrapper").on("click", ".check", checkControl);
   $(".prio").on("click", choosePrio);
   $(".todo_add").on("click", newItem);
   $(".todo_items_wrapper").on("click", ".todo_item_name", openItem);
   $(".color_addItem_btn[name=addItem_btn]").on("click", addTodoControl);
   $("input[name=modify_btn]").on("click", updateTodoControl);
+  $("input[name=delete_btn]").on("click", deleteTodoControl);
 });
