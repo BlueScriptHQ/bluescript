@@ -17,6 +17,7 @@ $(document).ready(function(){
   }
 
   window.newItem = function(){
+    $('.todo_content_container').trigger("reset");
     $(".open_item").hide();
     $(".new_item").show();
   };
