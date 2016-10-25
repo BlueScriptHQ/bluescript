@@ -21,6 +21,7 @@ $(document).ready(function(){
       method: "POST",
       success: function(r){
         loadTodo();
+        newItem();
       }
     });
 
