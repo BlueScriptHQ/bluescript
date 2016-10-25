@@ -10,7 +10,9 @@ $(document).ready(function(){
         $(".todo_items_wrapper").html(r);
       }
     });
-  } loadTodo();
+  }loadTodo();
+
+  setInterval(loadTodo, 5000);
 
   // toevoegen van todo
   window.addTodo = function(t, d, p, dl){

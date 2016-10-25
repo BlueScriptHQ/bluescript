@@ -1,0 +1,44 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,700';
+
+$mainColor: #3498db;
+$font: 'Open Sans', sans-serif;
+
+body {
+  font-family: $font;
+}
+
+table {
+  border-collapse: collapse;
+  margin-left: 88px;
+  margin-top: 30px;
+}
+
+table th {
+  width: 200px;
+  text-align: left;
+  background-color: $mainColor;
+  color: white;
+  font-weight: 400;
+}
+
+table th, td {
+  padding: 5px;
+  padding-right: 20px;
+  border-right: 2px solid #fff;
+}
+
+table th:last-child{
+  border-right: 0px solid;
+}
+table td:last-child{
+  border-right: 0px solid;
+}
+
+table tr:nth-child(odd){
+  background-color: #CCCCCC;
+}
+
+table .tCount{
+  width: 100px;
+  text-align: center;
+}

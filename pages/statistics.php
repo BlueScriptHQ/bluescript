@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/s_pages.min.css" media="screen" title="no title">
-    <link rel="stylesheet" href="css/tabel.css">
+    <link rel="stylesheet" href="css/tabel.min.css">
   </head>
 
   <body>
@@ -86,12 +86,12 @@
     <table>
       <tr>
         <th>Paginanaam</th>
-        <th>Paginacount</th>
+        <th class="tCount">Paginacount</th>
       </tr>
       <?php foreach($result as $row){
         echo "<tr>
         <td>".$row['pages_name']." \n </td>
-        <td>".$row['pages_count']." \n </td>
+        <td class='tCount'>".$row['pages_count']." \n </td>
         </tr>";
       }?>
     </table>
